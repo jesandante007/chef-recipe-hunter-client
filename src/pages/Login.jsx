@@ -15,9 +15,7 @@ const Login = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+      .then(() => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -27,9 +25,7 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+      .then(() => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -39,9 +35,7 @@ const Login = () => {
 
   const handleGithubSignIn = () => {
     githubSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+      .then(() => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -50,8 +44,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-274px)] flex justify-center items-center border rounded-full">
-      <div className="bg-base-200 p-10 rounded-lg space-y-5">
+    <div className="min-h-[calc(100vh-274px)] flex justify-center items-center border rounded-3xl">
+      <div className="bg-base-200 p-10 rounded-lg space-y-5 w-full lg:w-1/3">
         <form onSubmit={handleSignIn} className="space-y-5">
           <p className="text-4xl font-bold text-center mb-6">Login</p>
           <label className="input-group">
@@ -60,7 +54,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="example@email.com"
-              className="input"
+              className="input w-3/4"
               required
             />
           </label>
@@ -70,7 +64,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="********"
-              className="input"
+              className="input w-3/4"
               required
             />
           </label>

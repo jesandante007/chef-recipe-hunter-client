@@ -5,12 +5,13 @@ import ActiveLink from "../ActiveLink";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleLogOut = () => {
     logOut()
       .then()
-      .catch(error => console.log(error.message))
-  }
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     <div>
@@ -59,10 +60,10 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={user.displayName}>
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src={user ? user.photoURL : ""} />
                 </div>
               </label>
               <ul

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { toast } from "react-hot-toast";
 
 const RecipeCard = ({ recipe }) => {
   const [disable, setDisable] = useState(false);
@@ -24,7 +25,7 @@ const RecipeCard = ({ recipe }) => {
             {rating}
           </div>
           <button
-            onClick={() => setDisable(true)}
+            onClick={() => {setDisable(true),toast.success('Added to Favorite')}}
             className="btn btn-info normal-case text-base"
             disabled={disable}
           >
