@@ -7,7 +7,9 @@ const Main = () => {
   return (
     <div className="container mx-auto">
       <Header />
-      <Outlet />
+      <div className="min-h-[calc(100vh-274px)]">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
