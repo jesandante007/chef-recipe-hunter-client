@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ chef }) => {
-  const { id, name, image, bio, likes, yearsOfExperience, numberOfRecipes } =
+const ChefCard = ({ chef }) => {
+  const { id, name, image, likes, yearsOfExperience, numberOfRecipes } =
     chef;
 
   return (
     <div className="card card-compact bg-base-200 shadow-xl">
       <figure>
-        <img className="h-80 w-full m-5 object-top rounded-xl" src={image} alt="chef image" />
+        <img className="h-80 w-full m-5 object-cover object-top rounded-xl" src={image} alt="chef image" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-2xl">{name}</h2>
@@ -27,4 +27,4 @@ const Card = ({ chef }) => {
   );
 };
 
-export default Card;
+export default ChefCard;

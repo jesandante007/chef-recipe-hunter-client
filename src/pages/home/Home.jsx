@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Card from "./Card";
+import ChefCard from "../../components/cards/ChefCard";
 
 const Home = () => {
   const data = useLoaderData();
@@ -27,7 +27,7 @@ const Home = () => {
       <p className="mt-14 text-4xl text-center font-semibold">Meet Our Master Chefs: A Collection of Culinary Creativity</p>
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
         {
-            data.map(chef => <Card key={chef.id} chef={chef} />)
+            data.map(chef => <ChefCard key={chef.id} chef={chef} />)
         }
       </section>
     </div>
