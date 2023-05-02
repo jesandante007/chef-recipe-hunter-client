@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2023 - All right reserved by Chef-Recipe-Hunter</p>
+        <p>Copyright © 2023 - All right reserved by Spice Route</p>
       </div>
     </footer>
   );
