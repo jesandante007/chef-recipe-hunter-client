@@ -16,8 +16,13 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    if (password.length < 8) {
-      setError("password must contain minimum 8 character");
+    if (name == "" || email == "" || password == "") {
+      setError("name, email, password can't be empty");
+      return
+    }
+
+    if (password.length < 6) {
+      setError("password must contain minimum 6 character");
       return;
     } else if (!/^(?=.*[A-Z])(?=.*\d).+$/.test(password)) {
       setError("password must contain at least one upper & one digit");
@@ -27,13 +32,13 @@ const Register = () => {
     createUser(email, password)
       .then(() => {
         form.reset();
-        toast.success('Register Successfully')
+        toast.success("Register Successfully");
         setError("");
         navigate("/");
         updateUserData(name, photo);
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
   return (
@@ -48,7 +53,6 @@ const Register = () => {
               name="name"
               placeholder="Your Name"
               className="input w-3/4"
-              required
             />
           </label>
           <label className="input-group">
@@ -58,7 +62,6 @@ const Register = () => {
               name="email"
               placeholder="example@email.com"
               className="input w-3/4"
-              required
             />
           </label>
           <label className="input-group">
@@ -68,7 +71,6 @@ const Register = () => {
               name="password"
               placeholder="********"
               className="input w-3/4"
-              required
             />
           </label>
           <label className="input-group">

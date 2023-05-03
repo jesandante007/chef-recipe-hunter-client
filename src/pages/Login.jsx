@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState('')
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -16,30 +17,33 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
+        setError('')
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
+        setError('')
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
   const handleGithubSignIn = () => {
     githubSignIn()
       .then(() => {
+        setError('')
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
@@ -92,6 +96,7 @@ const Login = () => {
             SignUp
           </Link>
         </p>
+        <p className="text-error text-center font-semibold">{error}</p>
       </div>
     </div>
   );
