@@ -6,7 +6,19 @@ const ref = React.createRef();
 const Blog = () => {
   return (
     <>
-      <div ref={ref} className="container mx-auto space-y-10 divide-y mt-20">
+      <div className="flex justify-between items-center mt-5">
+        <p className="text-5xl font-semibold">Latest Articles</p>
+        <Pdf targetRef={ref} filename="document.pdf">
+          {({ toPdf }) => (
+            <div className="text-right">
+              <button className="btn btn-sm btn-info" onClick={toPdf}>
+                Generate Pdf
+              </button>
+            </div>
+          )}
+        </Pdf>
+      </div>
+      <div ref={ref} className="container mx-auto space-y-10 mt-20">
         <div>
           <p className="text-xl font-medium">
             The differences between uncontrolled and controlled components.
@@ -67,9 +79,6 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <Pdf targetRef={ref} filename="document.pdf">
-        {({ toPdf }) => <div className="text-center mt-10"><button className="btn btn-info" onClick={toPdf}>Generate Pdf</button></div>}
-      </Pdf>
     </>
   );
 };

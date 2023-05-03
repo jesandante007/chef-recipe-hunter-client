@@ -1,13 +1,15 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ChefCard from "../../components/cards/ChefCard";
+import CustomerReview from "./CustomerReview";
+import Slider from "./Slider";
 
 const Home = () => {
   const data = useLoaderData();
 
   return (
     <div>
-      <div className="hero bg-[url('/src/assets/hero.jpg')]">
+      <div className="hero bg-[url('/src/assets/images/hero.jpg')]">
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content py-20">
           <div className="max-w-lg">
@@ -23,11 +25,21 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <p className="mt-14 text-4xl text-center font-semibold">Meet Our Master Chefs: A Collection of Culinary Creativity</p>
+      <p className="mt-28 text-4xl text-center font-semibold">Meet Our Master Chefs: A Collection of Culinary Creativity</p>
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-14">
         {
             data.map(chef => <ChefCard key={chef.id} chef={chef} />)
         }
+      </section>
+      <p className="mt-28 text-4xl text-center font-semibold">Our Customers Love Spice Route</p>
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-24 mb-14 mt-28">
+        <CustomerReview />
+        <CustomerReview />
+        <CustomerReview />
+      </section>
+      <p className="mt-28 text-4xl text-center font-semibold">Mouthwatering Dishes to Try</p>
+      <section className="my-14">
+        <Slider />
       </section>
     </div>
   );
