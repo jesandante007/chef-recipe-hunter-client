@@ -62,7 +62,7 @@ const Header = () => {
           {user ? (
             <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={user.displayName}>
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
+                <div className="w-10 rounded-full ring-2 ring-info ring-offset-base-100 ring-offset-2">
                   <img src={user ? user.photoURL : ""} />
                 </div>
               </label>
